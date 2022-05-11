@@ -35,7 +35,7 @@ function useQuery() {
 
 function App() {
   let query = useQuery();
-  const [data, setData] = useState();
+  const [data, setData] = useState(0);
   const navigate = useNavigate();
 
   const fetchData = () => {
@@ -67,11 +67,11 @@ function App() {
 
   useEffect(() => {
     fetchData();
-  }, []);
-
+  }, [fetchData]);
+  console.log(data?.OnFire);
   return (
     <>
-      {data?.onFire ? (
+      {data?.OnFire ? (
         <Layout>
           <Header style={{ position: "fixed", zIndex: 1, width: "100%" }}>
             <div className="logo" />
